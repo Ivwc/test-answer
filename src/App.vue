@@ -1,28 +1,48 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <SearchBar :searchString.sync="searchString"/>
+    <Carousel/>
+    <CountDown/>
+    <Products :searchString="searchString"/>
+    <GotoTop/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import SearchBar from './components/SearchBar.vue'
+import Carousel from './components/Carousel.vue'
+import CountDown from './components/CountDown.vue'
+import Products from './components/Products.vue'
+import GotoTop from './components/GotoTop.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    SearchBar,Carousel,CountDown,Products,GotoTop
+  },
+  data() {
+    return {
+      searchString: ''
+    }
+  },
 }
 </script>
 
 <style lang="less">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+* {
+  box-sizing: border-box;
 }
+body {
+  margin: 0;
+  padding: 40px;
+  background: #ddd;
+}
+
+#app {
+  // padding-top: 66px;
+  position: relative;
+  width: 90%;
+}
+
+
 </style>
